@@ -26,7 +26,7 @@ const Header = (props) => {
             <span>Carrinho de Compras</span>
           </ModalRow>
           <CloseBtn onClick={() => ToggleCart()}>
-          <i class="fas fa-times"></i>
+            <i class="fas fa-times"></i>
           </CloseBtn>
           <hr />
         </ModalRow>
@@ -51,20 +51,28 @@ const Header = (props) => {
           </SmallLink>
         </PurpleNav>
         <BlackNav>
+          <a href="/">
             <Icon src="/logo512.png" />
-            <Row>
+          </a>
+          <Row>
             {props.children}
-              <Link>Home</Link>
-              <Link>Sobre</Link>
-              <Link>Conta <Arrow> <i class="fas fa-chevron-down"></i></Arrow></Link>
-              <CartBtn onClick={() => ToggleCart()}>
+            <Link>Home</Link>
+            <Link>Sobre</Link>
+            <Link>
+              Conta{" "}
+              <Arrow>
+                {" "}
+                <i class="fas fa-chevron-down"></i>
+              </Arrow>
+            </Link>
+            <CartBtn onClick={() => ToggleCart()}>
               <i class="fas fa-shopping-cart"></i>
             </CartBtn>
-            </Row>
+          </Row>
         </BlackNav>
       </Wrapper>
     </>
   );
 };
 
-export default Header
+export default Header;
