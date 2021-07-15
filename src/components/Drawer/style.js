@@ -53,7 +53,7 @@ export const ModalRow = styled.div`
   width: 100%;
   position: relative;
   margin-bottom: 0.7rem;
-  height: 4.7rem;
+  height: 6.2%;
 
   hr {
     width: 100%;
@@ -105,11 +105,11 @@ export const ModalContent = styled.div`
   width: 100%;
   position: relative;
   margin-bottom: 0.7rem;
-  height: 51.5rem;
+  height: 70%;
 `;
 
 export const ModalEnd = styled(ModalRow)`
-  height: 11rem;
+  height: 14%;
   bottom: 0;
   flex-direction: column;
 
