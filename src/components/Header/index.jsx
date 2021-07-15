@@ -14,9 +14,7 @@ import {
   CartBtn,
 } from "./style";
 
-import { Search } from "../index";
-
-const Header = () => {
+const Header = (props) => {
   const [cart, setCart] = useState(false);
   const ToggleCart = () => setCart(!cart);
 
@@ -55,14 +53,12 @@ const Header = () => {
         <BlackNav>
             <Icon src="/logo512.png" />
             <Row>
-              <Search/>
+            {props.children}
               <Link>Home</Link>
-              <Link>Loja</Link>
               <Link>Sobre</Link>
-              <Link>Contato</Link>
               <Link>Conta <Arrow> <i class="fas fa-chevron-down"></i></Arrow></Link>
               <CartBtn onClick={() => ToggleCart()}>
-              <i class="fas fa-shopping-bag"></i>
+              <i class="fas fa-shopping-cart"></i>
             </CartBtn>
             </Row>
         </BlackNav>

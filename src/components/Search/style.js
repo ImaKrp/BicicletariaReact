@@ -6,19 +6,6 @@ export const InputWrapper = styled.div`
   height: 4rem;
 `;
 
-export const Input = styled.input`
-  width: 100%;
-  height: 100%;
-  background-color: var(--input);
-  border: 1px solid var(--purple);
-  padding-left: 0.7rem;
-  color: var(--black);
-  font-size: 14px;
-  position: relative;
-  top: 0;
-  right: 0;
-`;
-
 export const Button = styled.button`
   background-color: transparent;
   cursor: pointer;

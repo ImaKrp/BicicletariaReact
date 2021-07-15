@@ -1,8 +1,9 @@
 import React from "react";
+import { useState } from "react";
 
-import { Card } from "../../components/index";
+import { Card, Footer, Header, Search } from "../../components/index";
 
-import { Produtos } from "../../provider/Produtos"
+import { Produtos } from "../../provider/Produtos";
 
 import {
   Content,
@@ -10,12 +11,23 @@ import {
   Banner,
   Title,
   Column,
-  BannerDiv,
+  Row,
+  Input,
 } from "./style";
 
 export const Products = () => {
+  const [search, setSearch] = useState("");
   return (
     <>
+      <Header>
+        <Search>
+          <Input
+            type="text"
+            placeholder="O que você procura?"
+            onChange={(event) => setSearch(event.target.value)}
+          />
+        </Search>
+      </Header>
       <Body>
         <Content>
           <Banner src="/Banners/Header.png" />
@@ -24,13 +36,20 @@ export const Products = () => {
             <hr />
           </Title>
           <Column>
-          {Produtos.map(produto =>
-          (
-            <Card id={produto.id} name={produto.name} price={produto.price}/>
-            ))}
+            <Row>
+              {Produtos.filter(
+                ({ name }) =>
+                  name.toLowerCase()?.indexOf(search.toLowerCase()) > -1
+              ).map((produto) => (
+                <Card
+                  id={produto.id}
+                  name={produto.name}
+                  price={produto.price}
+                />
+              ))}
+            </Row>
           </Column>
-          <BannerDiv>
-          </BannerDiv>
+          <Footer />
         </Content>
       </Body>
     </>

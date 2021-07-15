@@ -2,13 +2,12 @@ import styled from "styled-components";
 
 export const CardWrapper = styled.div`
   width: 33rem;
-  height: 33rem;
   background-color: var(--white);
-  border: 1px solid var(--purple);
   position: relative;
   transition: all 0.3s;
-  
-  
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 10%);
+  border-radius: 0.4rem;
+  margin-bottom: 1rem;
 `;
 
 export const ImgBg = styled.div`
@@ -17,8 +16,10 @@ export const ImgBg = styled.div`
   justify-content: center;
   width: 100%;
   height: 20rem;
+  
 
   img {
+    border-radius: 5px 5px 0 0;
     width: 100%;
   }
 `;
@@ -27,14 +28,12 @@ export const CardCont = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  text-align: center;
+  border-radius: 0 0 5px 5px;
+  text-align: left;
+  padding-left: 2rem;
   width: 100%;
-  height: 12.5rem;
-  background-color: var(--white);
-
-  div:last-of-type {
-    padding: 0 0 1.2rem 0;
-  }
+  height: 9rem;
+  background-color: #fff;
 
   h3,
   h5 {
@@ -49,7 +48,7 @@ export const CardCont = styled.div`
 
   h5 {
     font-size: 1.6rem;
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: 1.6rem;
   }
 `;

@@ -74,7 +74,7 @@ export const CloseBtn = styled.button`
   font-size: 2.4rem;
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     color: var(--purple);
   }
 `;
@@ -114,19 +114,18 @@ export const Row = styled.div`
   align-items: center;
 `;
 
-
 export const SmallLink = styled.a`
   width: 3rem;
   height: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #d2bfff ;
+  color: #d2bfff;
   font-size: 2rem;
   cursor: pointer;
   transition: all 0.3s;
 
-  &:hover{
+  &:hover {
     color: var(--white);
   }
 `;
@@ -138,12 +137,26 @@ export const Icon = styled.img`
 
 export const Link = styled(SmallLink)`
   width: fit-content;
-  height: 9rem;
   color: var(--white);
   font-size: 1.8rem;
+  position: relative;
 
-  &:hover{
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--purple);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover {
     color: #d2bfff;
+    &::after {
+      width: 100%;
+    }
   }
 `;
 
@@ -160,16 +173,30 @@ export const Arrow = styled.div`
 export const CartBtn = styled.button`
   width: fit-content;
   background-color: transparent;
-  height: 9rem;
   color: var(--white);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  position: relative;
   transition: all 0.3s;
   font-size: 1.8rem;
 
-  &:hover{
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 2px;
+    bottom: -0.6rem;
+    left: 0;
+    background-color: var(--purple);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover {
     color: #d2bfff;
+    &::after {
+      width: 100%;
+    }
   }
 `;

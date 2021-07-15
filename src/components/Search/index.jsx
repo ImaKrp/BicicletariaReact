@@ -1,10 +1,10 @@
-import { Button, Input, InputWrapper } from "./style";
+import { Button, InputWrapper } from "./style";
 
-const Search = () => {
+const Search = (props) => {
   return (
     <>
         <InputWrapper>
-          <Input type="text" placeholder="O que você procura?" />
+        {props.children}
           <Button>
             <i class="fas fa-search"></i>
           </Button>

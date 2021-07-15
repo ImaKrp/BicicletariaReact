@@ -21,29 +21,14 @@ export const Banner = styled.img`
   width: 100%;
 `;
 
-export const BannerDiv = styled.div`
-  width: 100%;
-  height: 24rem;
-  background-image: url(/Banners/Footer.png);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-
-  div{
-    padding: 0 12.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-`;
-
 export const Title = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2rem;
   width: 100%;
-  padding: 0 12.5rem;
+  padding: 0 20rem;
+  margin-bottom: 2rem;
 
   h1 {
     font-size: 2.4rem;
@@ -64,3 +49,25 @@ export const Column = styled.div`
   justify-content: center;
 `;
 
+export const Row = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  padding: 0 15%;
+`;
+
+export const Input = styled.input`
+  width: 100%;
+  height: 100%;
+  background-color: var(--input);
+  border: 1px solid var(--purple);
+  padding-left: 0.7rem;
+  color: var(--black);
+  font-size: 14px;
+  position: relative;
+  top: 0;
+  right: 0;
+`;

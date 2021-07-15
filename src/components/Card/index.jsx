@@ -5,7 +5,7 @@ import {
 } from "./style";
 
  const Card = (props) => {
-  const imagePath = `/Products/${props.product_id}.jpg`
+  const imagePath = `/Products/${props.id}.jpg`
   return (
     <>
       <CardWrapper>
