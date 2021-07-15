@@ -10,7 +10,6 @@ import {
   Body,
   Banner,
   Title,
-  Column,
   Row,
   Input,
 } from "./style";
@@ -35,7 +34,6 @@ export const Products = () => {
             <h1>Produtos</h1>
             <hr />
           </Title>
-          <Column>
             <Row>
               {Produtos.filter(
                 ({ name }) =>
@@ -48,7 +46,6 @@ export const Products = () => {
                 />
               ))}
             </Row>
-          </Column>
           <Footer />
         </Content>
       </Body>
