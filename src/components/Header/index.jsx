@@ -10,10 +10,15 @@ import {
   Link,
   Arrow,
   CartBtn,
+  CartDiv,
+  Notify,
 } from "./style";
-import { Drawer } from "../index"
+import { Drawer } from "../index";
+import { useCart } from "../../hooks/useCart";
 
 const Header = (props) => {
+  const { showAllItems } = useCart();
+  const CartItems = showAllItems();
   const [cart, setCart] = useState(false);
   const ToggleCart = () => setCart(!cart);
 
@@ -45,7 +50,7 @@ const Header = (props) => {
         </PurpleNav>
         <BlackNav>
           <Icon href="/">
-            <img src="/logo512.png" alt=""/>
+            <img src="/logo512.png" alt="" />
           </Icon>
           <Row>
             {props.children}
@@ -57,9 +62,12 @@ const Header = (props) => {
                 <i className="fas fa-caret-down"></i>
               </Arrow>
             </Link>
-            <CartBtn onClick={() => ToggleCart()}>
-              <i className="fas fa-shopping-cart"></i>
-            </CartBtn>
+            <CartDiv>
+              <CartBtn onClick={() => ToggleCart()}>
+                <i className="fas fa-shopping-cart"></i>
+              </CartBtn>
+              <Notify active={ CartItems.length > 0 ? true : false}/>
+            </CartDiv>
           </Row>
         </BlackNav>
       </Wrapper>

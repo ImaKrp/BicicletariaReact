@@ -143,3 +143,24 @@ export const CartBtn = styled.button`
     }
   }
 `;
+
+export const CartDiv = styled.div`
+  width: fit-content;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 1.8rem;
+`;
+
+export const Notify = styled.div`
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: #a442ff;
+  opacity: ${props => (props.active ? '1' : '0')};
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  clip-path: circle();
+`;
