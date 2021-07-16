@@ -226,6 +226,7 @@ export const EmptyText = styled.span`
   font-weight: 500;
   align-items: center;
   justify-content: center;
+  text-align: center;
 `;
 
 export const Empty = styled.img`

@@ -7,12 +7,25 @@ export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
   const [value, setValue] = useState(0);
 
+  function changeQuantity(Produto) {
+
+    cartItems.map((product) => {
+      if (product.id === Produto.id){
+        product.quantidade=Produto.quantidade;
+        console.log(product.quantidade)
+      }
+    })
+  }
+
   function addItemsToCart(product) {
-    setCartItems([...cartItems, product]);
+    if (changeQuantity(product)) {
+      console.log("a");
+    } else {
+      setCartItems([...cartItems, product]);
+    }
   }
 
   function deleteItemsFromCart(index) {
-    console.log(index);
     const Remaining = cartItems;
     Remaining.splice(index, 1);
     setCartItems([...Remaining]);
@@ -29,8 +42,8 @@ export function CartProvider({ children }) {
       valor += Number(obj.price);
     }
 
-    setValue(valor)
-    return value
+    setValue(valor);
+    return value;
   }
 
   return (
