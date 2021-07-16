@@ -7,22 +7,18 @@ export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
   const [value, setValue] = useState(0);
 
-  function changeQuantity(Produto) {
-
+  function addItemsToCart(Produto) {
+    if(cartItems.length === 0) {
+      setCartItems([Produto]);
+    }
     cartItems.map((product) => {
       if (product.id === Produto.id){
-        product.quantidade=Produto.quantidade;
-        console.log(product.quantidade)
+        product.quantidade += 1;
+      }
+      else {
+        setCartItems([...cartItems, Produto]);
       }
     })
-  }
-
-  function addItemsToCart(product) {
-    if (changeQuantity(product)) {
-      console.log("a");
-    } else {
-      setCartItems([...cartItems, product]);
-    }
   }
 
   function deleteItemsFromCart(index) {
