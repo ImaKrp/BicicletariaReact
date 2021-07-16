@@ -38,7 +38,7 @@ export const Modal = styled.div`
   background-color: #fff;
   right: 0;
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   top: 0;
   box-shadow: -3px 3px 10px -1px rgba(0, 0, 0, 0.1);
 `;

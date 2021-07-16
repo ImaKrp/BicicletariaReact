@@ -1,11 +1,7 @@
-import { useCart } from "../../hooks/useCart";
 import { CardWrapper, Img, CardCont } from "./style";
 
 const Card = (props) => {
-  const { addItemsToCart } = useCart();
-  function addProduct(produto) {
-    addItemsToCart(produto);
-  }
+  
   return (
     <>
       <CardWrapper>
@@ -16,7 +12,7 @@ const Card = (props) => {
             <h5>R$ {props.price},00</h5>
             <div className="buttons">
             <a href={`/produtos/${props.id}`}>Detalhes</a>
-            <button onClick={() => addProduct(props)}>Comprar</button>
+            {props.children}
           </div>
           </div>
         </CardCont>
