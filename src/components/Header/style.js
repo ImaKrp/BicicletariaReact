@@ -68,9 +68,14 @@ export const SmallLink = styled.a`
   }
 `;
 
-export const Icon = styled.img`
+export const Icon = styled.a`
   width: 6.5rem;
   height: 6.5rem;
+
+  img{
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const Link = styled(SmallLink)`

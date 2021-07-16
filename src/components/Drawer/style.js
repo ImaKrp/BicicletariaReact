@@ -2,7 +2,7 @@ import styled, { keyframes, css } from "styled-components";
 
 const slideIn = keyframes`
   from {
-    right: -30%;
+    right: -60%;
     visibility: hidden;
   }
   to {
@@ -17,7 +17,7 @@ const slideOut = keyframes`
     visibility: visible;
   }
   to {
-    right: -30%;
+    right: -60%;
     visibility: hidden;
   }
 `;
@@ -26,10 +26,10 @@ export const Modal = styled.div`
   animation: ${(props) =>
     props.active
       ? css`
-          ${slideIn} 0.7s forwards;
+          ${slideIn} 1s forwards;
         `
       : css`
-          ${slideOut} 0.7s forwards;
+          ${slideOut} 1s forwards;
         `};
   padding: 1rem 2rem;
   width: 30%;
@@ -105,7 +105,9 @@ export const ModalContent = styled.div`
   width: 100%;
   position: relative;
   margin-bottom: 0.7rem;
-  height: 70%;
+  height: 72%;
+  max-height: 72%;
+  overflow: scroll;
 `;
 
 export const ModalEnd = styled(ModalRow)`

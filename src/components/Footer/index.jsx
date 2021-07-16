@@ -33,19 +33,19 @@ const Footer = () => {
             </Title>
             <Left>
             <SmallLink>
-            <i class="fab fa-facebook-square"></i>
+            <i className="fab fa-facebook-square"></i>
           </SmallLink>
           <SmallLink>
-            <i class="fab fa-instagram"></i>
+            <i className="fab fa-instagram"></i>
           </SmallLink>
           <SmallLink>
-            <i class="fab fa-youtube"></i>
+            <i className="fab fa-youtube"></i>
           </SmallLink>
           <SmallLink>
-            <i class="fab fa-whatsapp"></i>
+            <i className="fab fa-whatsapp"></i>
           </SmallLink>
           <SmallLink>
-            <i class="fas fa-envelope"></i>
+            <i className="fas fa-envelope"></i>
           </SmallLink>
             </Left>
           </Column>

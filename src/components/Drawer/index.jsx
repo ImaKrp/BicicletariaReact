@@ -8,9 +8,11 @@ import {
   Orders,
   Trash,
 } from "./style";
-
+import { useCart } from '../../hooks/useCart'
 const Header = (props) => {
-
+  const { deleteItemsFromCart, showAllItems, totalValue } = useCart();
+  const allInCart = showAllItems();
+  const value = totalValue()
   return (
     <>
       <Modal active={props.active}>
@@ -22,51 +24,40 @@ const Header = (props) => {
           <hr />
         </ModalRow>
         <ModalContent>
-          <Orders>
-            <img src="/Products/1.jpg" alt="" />
-            <div class="column">
-              <div class="row">
-                <span>Bicicleta Casual</span>
-                <Trash>
-                  <i class="fas fa-trash-alt"></i>
-                </Trash>
+          {allInCart.map((product, index) => {
+            return (
+              <Orders key={index}>
+              <img src={`/Products/${product.id}.jpg`} alt="" />
+              <div className="column">
+                <div className="row">
+                  <span>{product.name}</span>
+                  <Trash onClick={() => deleteItemsFromCart(index)}>
+                    <i className="fas fa-trash-alt"></i>
+                  </Trash>
+                </div>
+                <div className="row">
+                  <h6>Quantidade: {product.quantidade}</h6>
+                  <span>R$ {product.price},00</span>
+                </div>
               </div>
-              <div class="row">
-                <h6>Quantidade: 1</h6>
-                <span>R$ 0,00</span>
-              </div>
-            </div>
-          </Orders>
-          <Orders>
-            <img src="/Products/1.jpg" alt="" />
-            <div class="column">
-              <div class="row">
-                <span>Bicicleta Casual</span>
-                <Trash>
-                  <i class="fas fa-trash-alt"></i>
-                </Trash>
-              </div>
-              <div class="row">
-                <h6>Quantidade: 1</h6>
-                <span>R$ 0,00</span>
-              </div>
-            </div>
-          </Orders>
+            </Orders>
+            )
+          })}
         </ModalContent>
         <ModalTotal>
           <span>subtotal: </span>
-          <h5>R$ 0,00</h5>
+          <h5>R$ {value > 0 ? (`${value},00`) : ("0,00")}</h5>
           <hr />
         </ModalTotal>
         <ModalEnd>
           <Buy>Comprar Agora</Buy>
-          <div class="row">
+          <div className="row">
             <div>
-              <i class="fas fa-caret-left"></i> Continuar Comprando
+              <i className="fas fa-caret-left"></i> Continuar Comprando
             </div>
             <hr />
             <div>
-              Visualizar Carrinho <i class="fas fa-caret-right"></i>
+              Visualizar Carrinho <i className="fas fa-caret-right"></i>
             </div>
           </div>
         </ModalEnd>

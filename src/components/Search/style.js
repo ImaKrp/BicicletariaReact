@@ -4,6 +4,10 @@ export const InputWrapper = styled.div`
   width: 50rem;
   position: relative;
   height: 4rem;
+
+  @media (max-width: 960px){
+    width: 30rem;
+  }
 `;
 
 export const Button = styled.button`

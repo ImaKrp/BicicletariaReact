@@ -21,32 +21,32 @@ const Header = (props) => {
     <>
       <Drawer active={cart}>
         <CloseBtn onClick={() => ToggleCart()}>
-          <i class="fas fa-times"></i>
+          <i className="fas fa-times"></i>
         </CloseBtn>
       </Drawer>
 
       <Wrapper>
         <PurpleNav>
           <SmallLink>
-            <i class="fab fa-facebook-square"></i>
+            <i className="fab fa-facebook-square"></i>
           </SmallLink>
           <SmallLink>
-            <i class="fab fa-instagram"></i>
+            <i className="fab fa-instagram"></i>
           </SmallLink>
           <SmallLink>
-            <i class="fab fa-youtube"></i>
+            <i className="fab fa-youtube"></i>
           </SmallLink>
           <SmallLink>
-            <i class="fab fa-whatsapp"></i>
+            <i className="fab fa-whatsapp"></i>
           </SmallLink>
           <SmallLink>
-            <i class="fas fa-envelope"></i>
+            <i className="fas fa-envelope"></i>
           </SmallLink>
         </PurpleNav>
         <BlackNav>
-          <a href="/">
-            <Icon src="/logo512.png" />
-          </a>
+          <Icon href="/">
+            <img src="/logo512.png" alt=""/>
+          </Icon>
           <Row>
             {props.children}
             <Link>Home</Link>
@@ -54,11 +54,11 @@ const Header = (props) => {
             <Link>
               Conta
               <Arrow>
-                <i class="fas fa-caret-down"></i>
+                <i className="fas fa-caret-down"></i>
               </Arrow>
             </Link>
             <CartBtn onClick={() => ToggleCart()}>
-              <i class="fas fa-shopping-cart"></i>
+              <i className="fas fa-shopping-cart"></i>
             </CartBtn>
           </Row>
         </BlackNav>

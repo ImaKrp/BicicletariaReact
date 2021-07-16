@@ -52,7 +52,7 @@ export const CardWrapper = styled.div`
     div {
       animation: ${slideUp} 0.2s forwards;
     }
-    a {
+    .buttons {
       animation: ${Show} 0.1s forwards;
     }
   }
@@ -61,19 +61,30 @@ export const CardWrapper = styled.div`
     animation: ${slideDown} 0.3s forwards;
   }
 
-  a {
-    align-self: center;
-    margin: 0 37.6%;
-    height: 3rem;
+  .buttons{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 3%;
+    animation: ${Hide} 0.3s forwards;
+  }
+
+  a, button {
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 3.7rem;
     color: var(--white);
     background-color: var(--purple);
     padding: 0.8rem;
     font-size: 1.5rem;
     cursor: pointer;
     transition: all 0.3s;
-    animation: ${Hide} 0.3s forwards;
   }
-  a:hover {
+  a:hover, button:hover {
     filter: brightness(1.2);
   }
 `;
@@ -117,6 +128,6 @@ export const CardCont = styled.div`
   h5 {
     font-size: 1.6rem;
     font-weight: 400;
-    margin-bottom: 1.6rem;
+    margin-bottom: 1rem;
   }
 `;

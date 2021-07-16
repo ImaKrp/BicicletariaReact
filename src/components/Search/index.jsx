@@ -6,7 +6,7 @@ const Search = (props) => {
         <InputWrapper>
         {props.children}
           <Button>
-            <i class="fas fa-search"></i>
+            <i className="fas fa-search"></i>
           </Button>
         </InputWrapper>
     </>

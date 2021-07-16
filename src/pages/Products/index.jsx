@@ -3,8 +3,7 @@ import { useState } from "react";
 
 import { Card, Footer, Header, Search } from "../../components/index";
 
-import { Produtos } from "../../provider/Produtos";
-
+import Produtos from '../../utils/json/products.json'
 import {
   Content,
   Body,
@@ -43,6 +42,7 @@ export const Products = () => {
                   id={produto.id}
                   name={produto.name}
                   price={produto.price}
+                  quantidade={produto.quantidade}
                 />
               ))}
             </Row>
