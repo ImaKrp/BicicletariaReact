@@ -209,3 +209,25 @@ export const Trash = styled.button`
     color: var(--purple);
   }
 `;
+
+export const EmptyWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+`;
+
+export const EmptyText = styled.span`
+  display: flex;
+  font-size: 1.6rem;
+  margin-top: 2rem;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Empty = styled.img`
+  width: 50%;
+`;

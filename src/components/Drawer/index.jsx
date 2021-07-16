@@ -7,6 +7,9 @@ import {
   Buy,
   Orders,
   Trash,
+  EmptyWrapper,
+  Empty,
+  EmptyText,
 } from "./style";
 import { useCart } from '../../hooks/useCart'
 const Header = (props) => {
@@ -24,7 +27,7 @@ const Header = (props) => {
           <hr />
         </ModalRow>
         <ModalContent>
-          {allInCart.map((product, index) => {
+        { allInCart.length > 0 ? allInCart.map((product, index) => {
             return (
               <Orders key={index}>
               <img src={`/Products/${product.id}.jpg`} alt="" />
@@ -41,8 +44,13 @@ const Header = (props) => {
                 </div>
               </div>
             </Orders>
-            )
-          })}
+            )}) : (
+            <EmptyWrapper>
+              <Empty src="/EmpyCart.svg"/>
+              <EmptyText> Você não possui nenhum produto cadastrada!</EmptyText>
+            </EmptyWrapper>
+          )}
+          
         </ModalContent>
         <ModalTotal>
           <span>subtotal: </span>
