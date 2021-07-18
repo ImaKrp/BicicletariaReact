@@ -8,7 +8,7 @@ export function CartProvider({ children }) {
   const [value, setValue] = useState(0);
 
   function addItemsToCart(Produto) {
-    let index = 0;
+    let index;
 
     if (cartItems.length === 0) setCartItems([...cartItems, Produto]);
 
@@ -19,8 +19,8 @@ export function CartProvider({ children }) {
           index = i;
         }
       }
-      
-      if (index !== 0) cartItems[index].quantidade++;
+
+      if (index >= 0) cartItems[index].quantidade++;
 
       else setCartItems([...cartItems, Produto]);
     }
