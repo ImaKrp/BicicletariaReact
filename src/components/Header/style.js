@@ -11,6 +11,7 @@ export const CloseBtn = styled.button`
   font-size: 2.4rem;
   cursor: pointer;
   position: relative;
+  transition: all 0.3s;
 
   &:hover {
     color: var(--purple);
