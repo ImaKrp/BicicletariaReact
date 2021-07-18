@@ -47,7 +47,7 @@ const Header = (props) => {
             )}) : (
             <EmptyWrapper>
               <Empty src="/EmpyCart.svg"/>
-              <EmptyText> Você não possui nenhum produto cadastrada!</EmptyText>
+              <EmptyText> Você não possui nenhum produto no carrinho!</EmptyText>
             </EmptyWrapper>
           )}
           
