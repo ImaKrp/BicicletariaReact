@@ -20,7 +20,13 @@ export function CartProvider({ children }) {
         }
       }
 
-      if (index >= 0) cartItems[index].quantidade++;
+      if (index >= 0) {
+        cartItems[index].quantidade++;
+        setCartItems([...cartItems, {}]);
+        const Remaining = cartItems;
+        Remaining.splice(cartItems.length, 1);
+        setCartItems([...Remaining]);
+      }
 
       else setCartItems([...cartItems, Produto]);
     }
