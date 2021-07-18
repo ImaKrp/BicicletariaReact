@@ -22,10 +22,7 @@ export function CartProvider({ children }) {
 
       if (index >= 0) {
         cartItems[index].quantidade++;
-        setCartItems([...cartItems, {}]);
-        const Remaining = cartItems;
-        Remaining.splice(cartItems.length, 1);
-        setCartItems([...Remaining]);
+        setCartItems([...cartItems]);
       }
 
       else setCartItems([...cartItems, Produto]);
