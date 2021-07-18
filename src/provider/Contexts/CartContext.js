@@ -8,17 +8,7 @@ export function CartProvider({ children }) {
   const [value, setValue] = useState(0);
 
   function addItemsToCart(Produto) {
-    if(cartItems.length === 0) {
-      setCartItems([Produto]);
-    }
-    cartItems.map((product) => {
-      if (product.id === Produto.id){
-        product.quantidade += 1;
-      }
-      else {
-        setCartItems([...cartItems, Produto]);
-      }
-    })
+    setCartItems([...cartItems, Produto]);
   }
 
   function deleteItemsFromCart(index) {
