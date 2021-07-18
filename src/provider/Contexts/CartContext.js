@@ -8,11 +8,27 @@ export function CartProvider({ children }) {
   const [value, setValue] = useState(0);
 
   function addItemsToCart(Produto) {
-    setCartItems([...cartItems, Produto]);
+    let index = 0;
+
+    if (cartItems.length === 0) setCartItems([...cartItems, Produto]);
+
+    else{
+      for (let i = 0; i < cartItems.length; i++){
+        const item = cartItems[i];
+        if(Produto.id === item.id){
+          index = i;
+        }
+      }
+      
+      if (index !== 0) cartItems[index].quantidade++;
+
+      else setCartItems([...cartItems, Produto]);
+    }
   }
 
   function deleteItemsFromCart(index) {
     const Remaining = cartItems;
+    Remaining[index].quantidade = 1
     Remaining.splice(index, 1);
     setCartItems([...Remaining]);
   }
@@ -25,7 +41,7 @@ export function CartProvider({ children }) {
     let valor = 0;
 
     for (const obj of cartItems) {
-      valor += Number(obj.price);
+      valor += Number(obj.price) * obj.quantidade;
     }
 
     setValue(valor);

@@ -62,7 +62,7 @@ export const Products = () => {
               ({ name }) =>
                 name.toLowerCase()?.indexOf(search.toLowerCase()) > -1
             ).map((produto) => (
-              <Card
+              <Card key={produto.id}
                 id={produto.id}
                 name={produto.name}
                 price={produto.price}
