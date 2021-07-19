@@ -1,9 +1,9 @@
 import { BannerDiv, Column, Adress, Title, Left, SmallLink } from "./style";
 
 const Footer = () => {
+
   return (
-    <>
-      <BannerDiv>
+      <BannerDiv id="footer">
         <div>
           <Column>
             <Title>
@@ -32,19 +32,19 @@ const Footer = () => {
               <hr />
             </Title>
             <Left>
-            <SmallLink>
+            <SmallLink href="https://www.facebook.com">
             <i className="fab fa-facebook-square"></i>
           </SmallLink>
-          <SmallLink>
+          <SmallLink href="https://www.instagram.com">
             <i className="fab fa-instagram"></i>
           </SmallLink>
-          <SmallLink>
+          <SmallLink href="https://www.youtube.com">
             <i className="fab fa-youtube"></i>
           </SmallLink>
-          <SmallLink>
+          <SmallLink href="http://api.whatsapp.com">
             <i className="fab fa-whatsapp"></i>
           </SmallLink>
-          <SmallLink>
+          <SmallLink href="mailto: ">
             <i className="fas fa-envelope"></i>
           </SmallLink>
             </Left>
@@ -57,7 +57,6 @@ const Footer = () => {
           </span>
         </Adress>
       </BannerDiv>
-    </>
   );
 };
 

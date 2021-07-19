@@ -15,8 +15,9 @@ import {
 } from "./style";
 import { Drawer } from "../index";
 import { useCart } from "../../hooks/useCart";
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
-const Header = (props) => {
+const Header = (props, {ref}) => {
   const { showAllItems } = useCart();
   const CartItems = showAllItems();
   const [cart, setCart] = useState(false);
@@ -32,19 +33,19 @@ const Header = (props) => {
 
       <Wrapper>
         <PurpleNav>
-          <SmallLink>
+          <SmallLink href="https://www.facebook.com">
             <i className="fab fa-facebook-square"></i>
           </SmallLink>
-          <SmallLink>
+          <SmallLink href="https://www.instagram.com">
             <i className="fab fa-instagram"></i>
           </SmallLink>
-          <SmallLink>
+          <SmallLink href="https://www.youtube.com">
             <i className="fab fa-youtube"></i>
           </SmallLink>
-          <SmallLink>
+          <SmallLink href="http://api.whatsapp.com">
             <i className="fab fa-whatsapp"></i>
           </SmallLink>
-          <SmallLink>
+          <SmallLink href="mailto: ">
             <i className="fas fa-envelope"></i>
           </SmallLink>
         </PurpleNav>
@@ -54,8 +55,8 @@ const Header = (props) => {
           </Icon>
           <Row>
             {props.children}
-            <Link>Home</Link>
-            <Link>Sobre</Link>
+            <Link href="/">Home</Link>
+            <AnchorLink href='#footer'><Link>Sobre</Link></AnchorLink>
             <Link>
               Conta
               <Arrow>

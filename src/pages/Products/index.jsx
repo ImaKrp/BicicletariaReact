@@ -27,6 +27,7 @@ export const Products = () => {
     addItemsToCart(produto);
     ToastAdded();
   }
+
   return (
     <>
       <ToastContainer
@@ -72,7 +73,7 @@ export const Products = () => {
               </Card>
             ))}
           </Row>
-          <Footer />
+          <Footer/>
         </Content>
       </Body>
     </>
