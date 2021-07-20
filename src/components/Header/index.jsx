@@ -17,18 +17,22 @@ import {
   Linking,
   SignUp,
   Unlinked,
+  SignUpBtn
 } from "./style";
 import { Drawer } from "../index";
 import { useCart } from "../../hooks/useCart";
 import { useSession } from "../../hooks/useSession";
 
 const Header = (props, { ref }) => {
-  const { Session } = useSession();
+  const { isItLogged, LogInOut } = useSession();
   const { showAllItems } = useCart();
-  const isLogged = Session();
+  const isLogged = isItLogged();
   const CartItems = showAllItems();
   const [cart, setCart] = useState(false);
   const ToggleCart = () => setCart(!cart);
+  
+  const SignOut = () => LogInOut();
+
   return (
     <>
       <Drawer active={cart}>
@@ -79,7 +83,7 @@ const Header = (props, { ref }) => {
                       ou
                       <hr />
                     </div>
-                    <SignUp>Sair</SignUp>
+                    <SignUpBtn onClick={() => SignOut()}>Sair</SignUpBtn>
                   </>
                 ) : (
                   <>
@@ -94,7 +98,7 @@ const Header = (props, { ref }) => {
                       ou
                       <hr />
                     </div>
-                    <SignUp>Cadastre-se</SignUp>
+                    <SignUp to="/signup">Cadastre-se</SignUp>
                   </>
                 )}
               </div>

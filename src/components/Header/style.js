@@ -308,7 +308,30 @@ export const Login = styled(Link)`
   }
 `;
 
-export const SignUp = styled.a`
+export const SignUpBtn = styled.a`
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 3.9rem;
+  color: var(--purple);
+  border: 2px solid var(--purple);
+  background-color: var(--white);
+  padding: 0.8rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    color: var(--white);
+    background-color: var(--purple);
+    border: 2px solid var(--purple);
+    filter: brightness(1.2);
+  }
+`;
+
+export const SignUp = styled(Link)`
   font-family: "Poppins", sans-serif;
   display: flex;
   align-items: center;

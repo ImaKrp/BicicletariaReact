@@ -2,14 +2,15 @@ import React from "react";
 import { Body, Icon, Log, Form, Input, Arrow, InputDiv, Eye } from "./style";
 import { useSession } from "../../hooks/useSession";
 import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Redirect } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-export const Login = () => {
+export const SignUp = () => {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
-  const { isItLogged, CreateSession, AddAccount } = useSession();
+  const { AddAccount, isItLogged } = useSession();
 
   const PassVisibility = (e) => {
     e.preventDefault();
@@ -28,8 +29,8 @@ export const Login = () => {
     }
   };
 
-  const ToastErro = () =>
-    toast.dark("Conta Não Encontrada", {
+  const ToastAdded = () =>
+    toast.dark("Conta Cadastrada com Sucesso", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,
@@ -39,13 +40,25 @@ export const Login = () => {
       progress: undefined,
     });
 
-  const handleSubmit = async(e, Username, Password) => {
+  const ToastErro = () =>
+    toast.dark("Usuário já Cadastrado", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+
+  const handleSubmit = async (e, Username, Password) => {
     e.preventDefault();
-    AddAccount()
-    if(await CreateSession(Username, Password) !== true) ToastErro()
+    const isRegistered = await AddAccount(Username, Password);
+    if (isRegistered) ToastAdded();
+    if (!isRegistered) ToastErro();
   };
 
-  const isLogged = isItLogged()
+  const isLogged = isItLogged();
 
   return (
     <>
@@ -85,13 +98,9 @@ export const Login = () => {
               <i className="far fa-eye-slash" id="eye"></i>
             </Eye>
           </InputDiv>
-          <Log type="submit">Entrar</Log>
+          <Log type="submit">Cadastrar</Log>
         </Form>
-        {isLogged ? 
-        (<Redirect to="/" />)
-        :
-        null
-      }
+        {isLogged ? <Redirect to="/" /> : null}
       </Body>
     </>
   );
