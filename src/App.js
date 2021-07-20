@@ -1,15 +1,18 @@
 import React from "react";
-import { Products } from "./pages/Products/index";
 import GlobalStyleProvider from "./global/globalStyles";
 import { CartProvider } from "./provider/Contexts/CartContext";
+import { SessionProvider } from "./provider/Contexts/SessionContext";
+import { Routes } from "./routes/routes";
 
 function App() {
   return (
     <>
-      <CartProvider>
-        <GlobalStyleProvider />
-        <Products />
-      </CartProvider>
+      <SessionProvider>
+        <CartProvider>
+          <GlobalStyleProvider />
+          <Routes />
+        </CartProvider>
+      </SessionProvider>
     </>
   );
 }

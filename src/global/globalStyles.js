@@ -66,4 +66,16 @@ input::placeholder{
 h1, h2, h3, h4, h5, h6, span, p{
   cursor: default;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  font-size: 1.6rem;
+  font-weight: 300;
+  -webkit-text-fill-color: var(--white);
+  -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0.25) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
 `;

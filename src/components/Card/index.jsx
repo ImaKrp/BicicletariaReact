@@ -1,5 +1,4 @@
 import { CardWrapper, Img, CardCont } from "./style";
-
 const Card = (props) => {
   
   return (

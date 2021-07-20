@@ -73,7 +73,7 @@ export const Icon = styled.a`
   width: 6.5rem;
   height: 6.5rem;
 
-  img{
+  img {
     width: 100%;
     height: 100%;
   }
@@ -104,7 +104,7 @@ export const Link = styled(SmallLink)`
   }
 `;
 
-export const Arrow = styled.div`
+export const Arrow = styled.h1`
   width: fit-content;
   height: 9rem;
   display: flex;
@@ -159,9 +159,103 @@ export const Notify = styled.div`
   width: 0.75rem;
   height: 0.75rem;
   background-color: #a442ff;
-  opacity: ${props => (props.active ? '1' : '0')};
+  opacity: ${(props) => (props.active ? "1" : "0")};
   position: absolute;
   top: -2px;
   right: -2px;
   clip-path: circle();
+`;
+
+export const Void = styled.div`
+  width: fit-content;
+  background-color: transparent;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+
+  .modal {
+    position: absolute;
+    width: 24rem;
+    height: fit-content;
+    padding: 1.5rem 0;
+    background-color: var(--white);
+    box-shadow: 0px 3px 10px -1px rgba(0, 0, 0, 0.34);
+    top: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s;
+    pointer-events: none;
+  }
+
+  &:hover {
+    .modal {
+      opacity: 1;
+      pointer-events: visible
+    }
+  }
+
+  .row {
+    display: flex;
+    color: var(--color-text);
+    width: 80%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+
+    hr {
+      width: 40%;
+      height: 1px;
+      background-color: var(--purple);
+    }
+  }
+`;
+
+export const Login = styled.a`
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 3.9rem;
+  color: var(--white);
+  background-color: var(--purple);
+  border: 2px solid var(--purple);
+  padding: 0.8rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+`;
+
+export const SignUp = styled.a`
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 3.9rem;
+  color: var(--purple);
+  border: 2px solid var(--purple);
+  background-color: var(--white);
+  padding: 0.8rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    color: var(--white);
+    background-color: var(--purple);
+    border: 2px solid var(--purple);
+    filter: brightness(1.2);
+  }
 `;
