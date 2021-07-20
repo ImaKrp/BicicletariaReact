@@ -1,16 +1,25 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Card, Footer, Header, Search } from "../../components/index";
 import { useCart } from "../../hooks/useCart";
-
-import Produtos from "../../utils/json/products.json";
 import { Content, Body, Banner, Title, Row, Input } from "./style";
+import { api } from "../../api/api";
 
 export const Products = () => {
   const [search, setSearch] = useState("");
-  const { addItemsToCart } = useCart();
+  const {addItemsToCart } = useCart();
+  const [Produtos, setProdutos] = useState();
+
+  const fetchProducts = async () => {
+    const {data} = await api.get('/Products');
+    setProdutos(data);
+  };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
   const ToastAdded = () =>
     toast.dark("Produto Adicionado ao Carrinho", {
@@ -59,7 +68,8 @@ export const Products = () => {
             <hr />
           </Title>
           <Row>
-            {Produtos.filter(
+            {Produtos ? (
+            Produtos.filter(
               ({ name }) =>
                 name.toLowerCase()?.indexOf(search.toLowerCase()) > -1
             ).map((produto) => (
@@ -72,7 +82,7 @@ export const Products = () => {
               >
                 <button onClick={() => addProduct(produto)}>Comprar</button>
               </Card>
-            ))}
+            ))) : null}
           </Row>
           <Footer />
         </Content>

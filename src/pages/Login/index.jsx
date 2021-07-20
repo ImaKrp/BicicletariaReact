@@ -11,9 +11,9 @@ export const Login = () => {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
   const { Logging, Session } = useSession();
-  const isLogged = Session()
 
-  const PassVisibility = () => {
+  const PassVisibility = (e) => {
+    e.preventDefault();
     const password = document.querySelector(".Password");
     const eye = document.querySelector("#eye");
     const type =
@@ -29,21 +29,23 @@ export const Login = () => {
     }
   };
 
-  const handleSubmit = (e, Username, Password) => {
-    const ToastErro = () =>
-      toast.dark("Conta Não Encontrada", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-      });
+  const ToastErro = () =>
+  toast.dark("Conta Não Encontrada", {
+    position: "top-right",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+  });
 
+  const handleSubmit = (e, Username, Password) => {
     e.preventDefault();
     Logging(Username, Password);
+    const isLogged = Session()
     isLogged ? history.push("/") : ToastErro()
+    console.log(isLogged)
   };
 
   return (
@@ -80,7 +82,7 @@ export const Login = () => {
               placeholder="Senha"
               type="password"
             />
-            <Eye onClick={() => PassVisibility()}>
+            <Eye onClick={(e) => PassVisibility(e)}>
               <i className="far fa-eye-slash" id="eye"></i>
             </Eye>
           </InputDiv>

@@ -1,10 +1,20 @@
-import { useState, createContext } from "react";
-import Accounts from "../../utils/json/accounts.json";
-
+import { useState, createContext, useEffect } from "react";
+import { api } from "../../api/api";
 const initialState = [];
 export const sessionContext = createContext(initialState);
 
 export function SessionProvider({ children }) {
+  const [Accounts, setAccounts] = useState([]);
+
+  const fetchAccounts = async () => {
+    const {data} = await api.get('/Accounts');
+    setAccounts(data);
+  };
+
+  useEffect(() => {
+    fetchAccounts();
+  }, []);
+
   const [session, setSession] = useState([]);
   const [isLogged, setIsLogged] = useState(false);
 
@@ -20,19 +30,19 @@ export function SessionProvider({ children }) {
     for (const account of Accounts) {
       if (Name === account.name && Pass === account.pass) {
         setSession(account);
-        LogInOut();
+        LogIn();
         console.log(account);
       }
     }
   }
 
-  function LogInOut() {
-    setIsLogged(!isLogged);
+  function LogIn() {
+    setIsLogged(true);
     console.log("logged");
   }
 
   return (
-    <sessionContext.Provider value={{ onGoingSession, Logging, LogInOut, Session }}>
+    <sessionContext.Provider value={{ onGoingSession, Logging, Session }}>
       {children}
     </sessionContext.Provider>
   );
