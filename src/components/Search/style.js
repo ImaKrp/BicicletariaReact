@@ -5,7 +5,7 @@ export const InputWrapper = styled.div`
   position: relative;
   height: 4rem;
 
-  @media (max-width: 960px){
+  @media (max-width: 960px) {
     width: 30rem;
   }
 `;
@@ -22,10 +22,10 @@ export const Button = styled.button`
   width: 4.5rem;
   height: 100%;
   font-size: 1.8rem;
-  color : var(--purple);
+  color: var(--purple);
   transition: all 0.3s;
 
-  &:hover{
+  &:hover {
     color: var(--white);
   }
 `;

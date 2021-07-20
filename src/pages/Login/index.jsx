@@ -15,7 +15,7 @@ export const Login = () => {
 
   return (
     <Body>
-      <Arrow href="/">
+      <Arrow to="/">
         <i className="fas fa-caret-left"></i>
       </Arrow>
       <Icon src="/logo512.png" />

@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 export const CloseBtn = styled.button`
   background-color: transparent;
@@ -69,17 +71,86 @@ export const SmallLink = styled.a`
   }
 `;
 
-export const Icon = styled.a`
+export const Icon = styled(Link)`
   width: 6.5rem;
   height: 6.5rem;
+  margin-right: 1rem;
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 6.5rem;
+    height: 6.5rem;
   }
 `;
 
-export const Link = styled(SmallLink)`
+export const Linked = styled(Link)`
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: fit-content;
+  color: var(--white);
+  font-size: 1.8rem;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--purple);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover {
+    color: #d2bfff;
+    &::after {
+      width: 100%;
+    }
+  }
+`;
+
+export const Linking = styled(AnchorLink)`
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: fit-content;
+  color: var(--white);
+  font-size: 1.8rem;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--purple);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover {
+    color: #d2bfff;
+    &::after {
+      width: 100%;
+    }
+  }
+`;
+
+export const Unlinked = styled.a`
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
   width: fit-content;
   color: var(--white);
   font-size: 1.8rem;
@@ -195,7 +266,7 @@ export const Void = styled.div`
   &:hover {
     .modal {
       opacity: 1;
-      pointer-events: visible
+      pointer-events: visible;
     }
   }
 
@@ -217,7 +288,7 @@ export const Void = styled.div`
   }
 `;
 
-export const Login = styled.a`
+export const Login = styled(Link)`
   font-family: "Poppins", sans-serif;
   display: flex;
   align-items: center;

@@ -9,28 +9,26 @@ export function SessionProvider({ children }) {
   const [isLogged, setIsLogged] = useState(false);
 
   function onGoingSession() {
-    return (isLogged, session)
+    return (isLogged, session);
   }
 
   function Logging(Name, Pass) {
-    for (const account of Accounts){
-      if(Name === account.name && Pass === account.pass){
-        setSession(account)
-        LogInOut()
-        console.log(account)
+    for (const account of Accounts) {
+      if (Name === account.name && Pass === account.pass) {
+        setSession(account);
+        LogInOut();
+        console.log(account);
       }
     }
   }
 
   function LogInOut() {
-    setIsLogged(!isLogged)
-    console.log('logged')
+    setIsLogged(!isLogged);
+    console.log("logged");
   }
 
   return (
-    <sessionContext.Provider
-      value={{ onGoingSession, Logging, LogInOut }}
-    >
+    <sessionContext.Provider value={{ onGoingSession, Logging, LogInOut }}>
       {children}
     </sessionContext.Provider>
   );

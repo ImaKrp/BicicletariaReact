@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Body = styled.div`
   width: 100vw;
@@ -68,7 +69,7 @@ export const Input = styled.input`
   }
 `;
 
-export const Arrow = styled.a`
+export const Arrow = styled(Link)`
   position: absolute;
   left: 2%;
   top: 2%;
@@ -81,7 +82,7 @@ export const Arrow = styled.a`
   color: var(--purple);
   transition: all 0.3s;
   cursor: pointer;
-  
+
   &:hover {
     filter: brightness(1.2);
   }

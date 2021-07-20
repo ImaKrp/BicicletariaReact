@@ -35,7 +35,7 @@ export const Column = styled.div`
   color: var(--white);
   width: 30rem;
 
-  ul{
+  ul {
     font-size: 1.4rem;
     align-items: center;
     justify-self: left;
@@ -61,7 +61,6 @@ export const Title = styled.div`
   }
 `;
 
-
 export const Left = styled.div`
   width: 100%;
   display: flex;
@@ -71,8 +70,8 @@ export const Left = styled.div`
   line-break: auto;
 
   font-size: 1.4rem;
-    align-items: center;
-    justify-self: left;
+  align-items: center;
+  justify-self: left;
 `;
 
 export const SmallLink = styled.a`

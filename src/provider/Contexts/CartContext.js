@@ -11,11 +11,10 @@ export function CartProvider({ children }) {
     let index;
 
     if (cartItems.length === 0) setCartItems([...cartItems, Produto]);
-
-    else{
-      for (let i = 0; i < cartItems.length; i++){
+    else {
+      for (let i = 0; i < cartItems.length; i++) {
         const item = cartItems[i];
-        if(Produto.id === item.id){
+        if (Produto.id === item.id) {
           index = i;
         }
       }
@@ -23,15 +22,13 @@ export function CartProvider({ children }) {
       if (index >= 0) {
         cartItems[index].quantidade++;
         setCartItems([...cartItems]);
-      }
-
-      else setCartItems([...cartItems, Produto]);
+      } else setCartItems([...cartItems, Produto]);
     }
   }
 
   function deleteItemsFromCart(index) {
     const Remaining = cartItems;
-    Remaining[index].quantidade = 1
+    Remaining[index].quantidade = 1;
     Remaining.splice(index, 1);
     setCartItems([...Remaining]);
   }

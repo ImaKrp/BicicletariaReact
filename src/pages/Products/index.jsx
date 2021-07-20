@@ -63,7 +63,8 @@ export const Products = () => {
               ({ name }) =>
                 name.toLowerCase()?.indexOf(search.toLowerCase()) > -1
             ).map((produto) => (
-              <Card key={produto.id}
+              <Card
+                key={produto.id}
                 id={produto.id}
                 name={produto.name}
                 price={produto.price}
@@ -73,7 +74,7 @@ export const Products = () => {
               </Card>
             ))}
           </Row>
-          <Footer/>
+          <Footer />
         </Content>
       </Body>
     </>

@@ -7,19 +7,20 @@ import {
   SmallLink,
   Icon,
   Row,
-  Link,
+  Linked,
   Arrow,
   CartBtn,
   CartDiv,
   Notify,
   Void,
   Login,
+  Linking,
   SignUp,
+  Unlinked,
 } from "./style";
 import { Drawer } from "../index";
 import { useCart } from "../../hooks/useCart";
 import { useSession } from "../../hooks/useSession";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const Header = (props, { ref }) => {
   const { onGoingSession } = useSession();
@@ -56,24 +57,22 @@ const Header = (props, { ref }) => {
           </SmallLink>
         </PurpleNav>
         <BlackNav>
-          <Icon href="/">
+          <Icon to="/">
             <img src="/logo512.png" alt="" />
           </Icon>
           <Row>
             {props.children}
-            <Link href="/">Home</Link>
-            <AnchorLink href="#footer">
-              <Link>Sobre</Link>
-            </AnchorLink>
+            <Linked to="/">Home</Linked>
+            <Linking href="#footer">Sobre</Linking>
             <Void>
-              <Link>
+              <Unlinked>
                 Conta
                 <Arrow>
                   <i className="fas fa-caret-down"></i>
                 </Arrow>
-              </Link>
+              </Unlinked>
               <div className="modal">
-                <Login href="/login">
+                <Login to="/login">
                   Entrar
                   <Arrow>
                     <i className="fas fa-caret-right"></i>

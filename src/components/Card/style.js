@@ -61,7 +61,7 @@ export const CardWrapper = styled.div`
     animation: ${slideDown} 0.3s forwards;
   }
 
-  .buttons{
+  .buttons {
     display: flex;
     width: 100%;
     align-items: center;
@@ -70,7 +70,8 @@ export const CardWrapper = styled.div`
     animation: ${Hide} 0.3s forwards;
   }
 
-  a, button {
+  a,
+  button {
     font-family: "Poppins", sans-serif;
     display: flex;
     align-items: center;
@@ -84,7 +85,8 @@ export const CardWrapper = styled.div`
     cursor: pointer;
     transition: all 0.3s;
   }
-  a:hover, button:hover {
+  a:hover,
+  button:hover {
     filter: brightness(1.2);
   }
 `;
