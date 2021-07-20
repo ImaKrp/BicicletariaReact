@@ -23,13 +23,12 @@ import { useCart } from "../../hooks/useCart";
 import { useSession } from "../../hooks/useSession";
 
 const Header = (props, { ref }) => {
-  const { onGoingSession } = useSession();
+  const { Session } = useSession();
   const { showAllItems } = useCart();
-  const isLogged = onGoingSession();
+  const isLogged = Session();
   const CartItems = showAllItems();
   const [cart, setCart] = useState(false);
   const ToggleCart = () => setCart(!cart);
-
   return (
     <>
       <Drawer active={cart}>
@@ -37,7 +36,7 @@ const Header = (props, { ref }) => {
           <i className="fas fa-times"></i>
         </CloseBtn>
       </Drawer>
-
+      {CartItems.length > 0 ? true : false}
       <Wrapper>
         <PurpleNav>
           <SmallLink href="https://www.facebook.com">
@@ -72,18 +71,32 @@ const Header = (props, { ref }) => {
                 </Arrow>
               </Unlinked>
               <div className="modal">
-                <Login to="/login">
-                  Entrar
-                  <Arrow>
-                    <i className="fas fa-caret-right"></i>
-                  </Arrow>
-                </Login>
-                <div className="row">
-                  <hr />
-                  ou
-                  <hr />
-                </div>
-                <SignUp>Cadastre-se</SignUp>
+                {isLogged ? (
+                  <>
+                    <Login>Perfil</Login>
+                    <div className="row">
+                      <hr />
+                      ou
+                      <hr />
+                    </div>
+                    <SignUp>Sair</SignUp>
+                  </>
+                ) : (
+                  <>
+                    <Login to="/login">
+                      Entrar
+                      <Arrow>
+                        <i className="fas fa-caret-right"></i>
+                      </Arrow>
+                    </Login>
+                    <div className="row">
+                      <hr />
+                      ou
+                      <hr />
+                    </div>
+                    <SignUp>Cadastre-se</SignUp>
+                  </>
+                )}
               </div>
             </Void>
             <CartDiv>

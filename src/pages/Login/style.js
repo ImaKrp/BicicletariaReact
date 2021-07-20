@@ -87,3 +87,31 @@ export const Arrow = styled(Link)`
     filter: brightness(1.2);
   }
 `;
+
+export const InputDiv = styled.div`
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+`;
+
+export const Eye = styled.button`
+width: 1.8rem;
+height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 1rem;
+  font-size: 1.4rem;
+  background-color: transparent;
+  color: var(--purple);
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover{
+    filter: brightness(1.2);
+  }
+`;

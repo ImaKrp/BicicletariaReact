@@ -9,7 +9,11 @@ export function SessionProvider({ children }) {
   const [isLogged, setIsLogged] = useState(false);
 
   function onGoingSession() {
-    return (isLogged, session);
+    return session;
+  }
+
+  function Session() {
+    return isLogged;
   }
 
   function Logging(Name, Pass) {
@@ -28,7 +32,7 @@ export function SessionProvider({ children }) {
   }
 
   return (
-    <sessionContext.Provider value={{ onGoingSession, Logging, LogInOut }}>
+    <sessionContext.Provider value={{ onGoingSession, Logging, LogInOut, Session }}>
       {children}
     </sessionContext.Provider>
   );

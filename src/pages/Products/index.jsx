@@ -15,7 +15,7 @@ export const Products = () => {
   const ToastAdded = () =>
     toast.dark("Produto Adicionado ao Carrinho", {
       position: "top-right",
-      autoClose: 3000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: false,
@@ -32,7 +32,7 @@ export const Products = () => {
     <>
       <ToastContainer
         position="top-right"
-        autoClose={3000}
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
