@@ -70,7 +70,7 @@ export const CardWrapper = styled.div`
     animation: ${Hide} 0.3s forwards;
   }
 
-  a,
+  .link,
   button {
     font-family: "Poppins", sans-serif;
     display: flex;
@@ -85,7 +85,7 @@ export const CardWrapper = styled.div`
     cursor: pointer;
     transition: all 0.3s;
   }
-  a:hover,
+  .link:hover,
   button:hover {
     filter: brightness(1.2);
   }

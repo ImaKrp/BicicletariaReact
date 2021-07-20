@@ -1,4 +1,5 @@
 import { CardWrapper, Img, CardCont } from "./style";
+import { Link } from "react-router-dom";
 const Card = (props) => {
   return (
     <>
@@ -9,7 +10,7 @@ const Card = (props) => {
             <h3>{props.name}</h3>
             <h5>R$ {props.price},00</h5>
             <div className="buttons">
-              <a href={`/produtos/${props.id}`}>Detalhes</a>
+              <Link className="link" to={`/produtos/${props.id}`}>Detalhes</Link>
               {props.children}
             </div>
           </div>
