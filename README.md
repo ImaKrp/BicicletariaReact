@@ -9,7 +9,7 @@
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
   <a href="https://twitter.com/whatakrp" target="_blank">
-    <img alt="Twitter: whatakrp" src="https://img.shields.io/twitter/follow/krpfps.svg?style=social" />
+    <img alt="Twitter: whatakrp" src="https://img.shields.io/twitter/follow/whatakrp.svg?style=social" />
   </a>
 </p>
 
