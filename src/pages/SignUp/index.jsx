@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Body, Icon, Log, Form, Input, Arrow, InputDiv, Eye } from "./style";
 import { useSession } from "../../hooks/useSession";
-import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { Redirect } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -41,7 +40,7 @@ export const SignUp = () => {
     });
 
   const ToastErro = () =>
-    toast.dark("Usuário já Cadastrado", {
+    toast.dark("Usuário já Cadastrado / Dados Inválidos", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,
