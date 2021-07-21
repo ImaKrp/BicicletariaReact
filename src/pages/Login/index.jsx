@@ -10,7 +10,9 @@ export const Login = () => {
   const [Password, setPassword] = useState("");
   const { isItLogged, CreateSession, fetchAccounts } = useSession();
 
-  useEffect(() => fetchAccounts(), [Password]);
+  useEffect(() => {
+    fetchAccounts();
+  }, [fetchAccounts]);
 
   const PassVisibility = (e) => {
     e.preventDefault();

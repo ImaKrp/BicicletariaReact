@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, useCallback, createContext } from "react";
 import { api } from "../../api/api";
 const initialState = [];
 export const sessionContext = createContext(initialState);
@@ -9,11 +9,11 @@ export function SessionProvider({ children }) {
   const [isLogged, setIsLogged] = useState(false);
   const [genId, setGenId] = useState(0);
 
-  const fetchAccounts = async () => {
+  const fetchAccounts = useCallback(async () => {
     const { data } = await api.get("/Accounts");
     await setAccounts(data);
-    setGenId(Accounts.length + 1)
-  };
+    setGenId(Accounts.length + 1);
+  }, [Accounts.length]);
 
   function onGoingSession() {
     return session;
@@ -33,12 +33,12 @@ export function SessionProvider({ children }) {
   }
 
   async function CreateSession(Name, Pass) {
-   await fetchAccounts();
-   
+    await fetchAccounts();
+
     for (const account of Accounts) {
       if (Name === account.name && Pass === account.pass) {
         setSession(account);
-        console.log(isLogged)
+        console.log(isLogged);
         LogIn();
         return true;
       }
@@ -47,22 +47,22 @@ export function SessionProvider({ children }) {
 
   async function AddAccount(Name, Pass) {
     await fetchAccounts();
-    
+
     let erro = 0;
 
     for (const account of Accounts) {
       if (Name === account.name) erro++;
-      if (Name == null  || Pass == null || Name === '' || Pass === '') erro++;
+      if (Name == null || Pass == null || Name === "" || Pass === "") erro++;
     }
 
-    if(erro > 0) return false
+    if (erro > 0) return false;
     await api.post("/Accounts", {
       id: genId,
       name: `${Name}`,
       pass: `${Pass}`,
     });
     LogIn();
-    LogOut()
+    LogOut();
     return true;
   }
 
