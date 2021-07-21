@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Body, Icon, Log, Form, Input, Arrow, InputDiv, Eye } from "./style";
 import { useSession } from "../../hooks/useSession";
-import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Redirect } from "react-router-dom";
@@ -9,7 +8,9 @@ import { Redirect } from "react-router-dom";
 export const Login = () => {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
-  const { isItLogged, CreateSession } = useSession();
+  const { isItLogged, CreateSession, fetchAccounts } = useSession();
+
+  useEffect(() => fetchAccounts(), [Password]);
 
   const PassVisibility = (e) => {
     e.preventDefault();

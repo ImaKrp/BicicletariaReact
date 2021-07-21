@@ -75,6 +75,7 @@ export function SessionProvider({ children }) {
         LogIn,
         AddAccount,
         LogOut,
+        fetchAccounts,
       }}
     >
       {children}
