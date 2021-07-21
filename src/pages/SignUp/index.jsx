@@ -30,7 +30,7 @@ export const SignUp = () => {
   };
 
   const ToastAdded = () =>
-    toast.dark("Conta Cadastrada com Sucesso", {
+    toast.dark("Conta Cadastrada com Sucesso, Logue na Conta", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,
@@ -100,7 +100,7 @@ export const SignUp = () => {
           </InputDiv>
           <Log type="submit">Cadastrar</Log>
         </Form>
-        {isLogged ? <Redirect to="/" /> : null}
+        {isLogged ? <Redirect to="/login" /> : null}
       </Body>
     </>
   );

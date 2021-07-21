@@ -9,7 +9,7 @@ import { Redirect } from "react-router-dom";
 export const Login = () => {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
-  const { isItLogged, CreateSession, AddAccount } = useSession();
+  const { isItLogged, CreateSession } = useSession();
 
   const PassVisibility = (e) => {
     e.preventDefault();
@@ -41,11 +41,10 @@ export const Login = () => {
 
   const handleSubmit = async(e, Username, Password) => {
     e.preventDefault();
-    AddAccount()
-    if(await CreateSession(Username, Password) !== true) ToastErro()
+    if (await CreateSession(Username, Password) !== true) ToastErro()
   };
 
-  const isLogged = isItLogged()
+  const isLogged = isItLogged();
 
   return (
     <>
@@ -87,11 +86,7 @@ export const Login = () => {
           </InputDiv>
           <Log type="submit">Entrar</Log>
         </Form>
-        {isLogged ? 
-        (<Redirect to="/" />)
-        :
-        null
-      }
+        {isLogged ? <Redirect to="/" /> : null}
       </Body>
     </>
   );

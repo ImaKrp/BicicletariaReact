@@ -24,14 +24,14 @@ import { useCart } from "../../hooks/useCart";
 import { useSession } from "../../hooks/useSession";
 
 const Header = (props, { ref }) => {
-  const { isItLogged, LogInOut } = useSession();
+  const { isItLogged, LogOut } = useSession();
   const { showAllItems } = useCart();
   const isLogged = isItLogged();
   const CartItems = showAllItems();
   const [cart, setCart] = useState(false);
   const ToggleCart = () => setCart(!cart);
   
-  const SignOut = () => LogInOut();
+  const SignOut = () => LogOut();
 
   return (
     <>

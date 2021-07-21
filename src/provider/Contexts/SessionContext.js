@@ -7,10 +7,12 @@ export function SessionProvider({ children }) {
   const [Accounts, setAccounts] = useState([]);
   const [session, setSession] = useState([]);
   const [isLogged, setIsLogged] = useState(false);
+  const [genId, setGenId] = useState(0);
 
   const fetchAccounts = async () => {
     const { data } = await api.get("/Accounts");
-    setAccounts(data);
+    await setAccounts(data);
+    setGenId(Accounts.length + 1)
   };
 
   function onGoingSession() {
@@ -21,36 +23,46 @@ export function SessionProvider({ children }) {
     return isLogged;
   }
 
-  function CreateSession(Name, Pass) {
-    fetchAccounts();
-    console.log(Accounts)
+  function LogIn() {
+    setIsLogged(true);
+  }
+
+  function LogOut() {
+    setIsLogged(false);
+    setSession([]);
+  }
+
+  async function CreateSession(Name, Pass) {
+   await fetchAccounts();
+   
     for (const account of Accounts) {
       if (Name === account.name && Pass === account.pass) {
         setSession(account);
-        LogInOut();
-        console.log(account);
+        console.log(isLogged)
+        LogIn();
         return true;
       }
     }
   }
 
-  function LogInOut() {
-    setIsLogged(!isLogged);
-    setSession([]);
-  }
+  async function AddAccount(Name, Pass) {
+    await fetchAccounts();
+    
+    let erro = 0;
 
-  function AddAccount(Name, Pass) {
     for (const account of Accounts) {
-      if (Name === account.name && Pass === account.pass) return false;
-      if (Name == null  || Pass == null) return false;
+      if (Name === account.name) erro++;
+      if (Name == null  || Pass == null || Name === '' || Pass === '') erro++;
     }
 
-    api.post("/Accounts", {
-      id: (Accounts.length += 1),
+    if(erro > 0) return false
+    await api.post("/Accounts", {
+      id: genId,
       name: `${Name}`,
       pass: `${Pass}`,
     });
-
+    LogIn();
+    LogOut()
     return true;
   }
 
@@ -60,8 +72,9 @@ export function SessionProvider({ children }) {
         onGoingSession,
         isItLogged,
         CreateSession,
-        LogInOut,
+        LogIn,
         AddAccount,
+        LogOut,
       }}
     >
       {children}
