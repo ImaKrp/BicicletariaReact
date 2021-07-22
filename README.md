@@ -53,7 +53,7 @@ You can modify the db.json ("src/db.json")
 
 👤 **Júlio Carvalho Gonçalves**
 
-* Twitter: [@krpfps](https://twitter.com/whatakrp)
+* Twitter: [@whatakrp](https://twitter.com/whatakrp)
 * Github: [@ImaKrp](https://github.com/ImaKrp)
 
 ## Support Me on GitHub
