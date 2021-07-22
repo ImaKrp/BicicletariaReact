@@ -23,7 +23,7 @@ First part is finally done  ~I mean, need some fixes, but... whatever
 
 ## Requirements
 
-Yarn to install dependencies
+Yarn to install all dependencies
 
  ```sh
 yarn
@@ -42,6 +42,8 @@ Start Json Server:
 ```sh
 json-server --watch db.json --port 8000
 ```
+
+You may want backend routes, you can see them all importing the Insomnia.json
 
 ## 📑 Modifying Database 
 
