@@ -33,7 +33,7 @@ export const Modal = styled.div`
         `};
   padding: 1rem 2rem;
   width: 30%;
-  min-width: 40rem;
+  min-width: 41rem;
   height: 80%;
   background-color: #fff;
   right: 0;

@@ -1,5 +1,5 @@
 {
-  "Accounts": [
+  "accounts": [
     {
       "id": 1,
       "name": "imakrp@gmail.com",
@@ -9,31 +9,54 @@
       "id": 2,
       "name": "imakadwadadrp@gmail.com",
       "pass": "Teste"
+    },
+    {
+      "id": 3,
+      "name": "joaozin@gmail.com",
+      "pass": "SeiLa"
     }
   ],
-  "Products": [
+  "products": [
     {
       "id": 1,
-      "name": "Bicicleta Casual",
-      "price": "1",
+      "img": "https://lojadabicicletaria.com.br/wp-content/uploads/2021/06/Audax-ADX-100-2021-cnz.jpg",
+      "name": "Bicicleta Audax ADX 100, 2021",
+      "price": "4.649",
       "quantidade": 1
     },
     {
       "id": 2,
-      "name": "Bicicleta Esportiva",
-      "price": "3",
+      "img": "https://lojadabicicletaria.com.br/wp-content/uploads/2021/06/Audax-FS-600-pto.azl_.jpg",
+      "name": "Bicicleta Audax FS 600",
+      "price": "20.990",
       "quantidade": 1
     },
     {
       "id": 3,
-      "name": "Bicicleta Caseira",
-      "price": "2",
+      "img": "https://lojadabicicletaria.com.br/wp-content/uploads/2021/06/Havok-Nx-2021-azl.png",
+      "name": "Bicicleta Audax Havok NX, 2021",
+      "price": "3.890",
       "quantidade": 1
     },
     {
       "id": 4,
-      "name": "Bicicleta Fabricada",
-      "price": "4",
+      "img": "https://lojadabicicletaria.com.br/wp-content/uploads/2021/06/Havok-Sx-2021-vrd.cnz_.png",
+      "name": "Bicicleta Audax Havok SX, 2021",
+      "price": "2.890",
+      "quantidade": 1
+    },
+    {
+      "id": 5,
+      "img": "https://lojadabicicletaria.com.br/wp-content/uploads/2021/06/Houston-Skyle-2020-pto.vrm_.jpg",
+      "name": "Bicicleta Houston Skyler, 2020",
+      "price": "1.890",
+      "quantidade": 1
+    },
+    {
+      "id": 6,
+      "img": "https://lojadabicicletaria.com.br/wp-content/uploads/2021/06/Lotus-Angel-2021-pto.rsa_.jpg",
+      "name": "Bicicleta Lotus Angel, 2021",
+      "price": "2.390",
       "quantidade": 1
     }
   ]

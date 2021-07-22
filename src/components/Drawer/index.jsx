@@ -12,10 +12,23 @@ import {
   EmptyText,
 } from "./style";
 import { useCart } from "../../hooks/useCart";
+import Mask from "../../utils/Mask" 
+
 const Header = (props) => {
   const { deleteItemsFromCart, showAllItems, totalValue } = useCart();
   const allInCart = showAllItems();
   const value = totalValue();
+
+  const valueMask = () =>{
+    let maskedValue = 0;
+
+    if(value >= 1000 && value < 1000000){
+      maskedValue = Mask.ThousandMask(value.toString())
+      return maskedValue
+    }
+    else return value
+  }
+
   return (
     <>
       <Modal active={props.active}>
@@ -31,7 +44,7 @@ const Header = (props) => {
             allInCart.map((product, index) => {
               return (
                 <Orders key={index}>
-                  <img src={`/Products/${product.id}.jpg`} alt="" />
+                  <img src={product.img} alt="" />
                   <div className="column">
                     <div className="row">
                       <span>{product.name}</span>
@@ -56,7 +69,7 @@ const Header = (props) => {
         </ModalContent>
         <ModalTotal>
           <span>subtotal: </span>
-          <h5>R$ {value > 0 ? `${value},00` : "0,00"}</h5>
+          <h5>R$ {valueMask() !== 0 ? `${valueMask()},00` : "0,00"}</h5>
           <hr />
         </ModalTotal>
         <ModalEnd>

@@ -4,13 +4,13 @@ const Card = (props) => {
   return (
     <>
       <CardWrapper>
-        <Img src={`/Products/${props.id}.jpg`} />
+        <Img src={props.img} />
         <CardCont>
           <div>
             <h3>{props.name}</h3>
             <h5>R$ {props.price},00</h5>
             <div className="buttons">
-              <Link className="link" to={`/produtos/${props.id}`}>Detalhes</Link>
+              <Link className="link" to={`/detalhes?id=${props.id}`}>Detalhes</Link>
               {props.children}
             </div>
           </div>

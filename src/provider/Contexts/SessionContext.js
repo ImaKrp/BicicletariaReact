@@ -10,7 +10,7 @@ export function SessionProvider({ children }) {
   const [genId, setGenId] = useState(0);
 
   const fetchAccounts = useCallback(async () => {
-    const { data } = await api.get("/Accounts");
+    const { data } = await api.get("/accounts");
     await setAccounts(data);
     setGenId(Accounts.length + 1);
   }, [Accounts.length]);
@@ -56,7 +56,7 @@ export function SessionProvider({ children }) {
     }
 
     if (erro > 0) return false;
-    await api.post("/Accounts", {
+    await api.post("/accounts", {
       id: genId,
       name: `${Name}`,
       pass: `${Pass}`,

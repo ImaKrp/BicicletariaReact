@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Products } from "../pages/Products";
 import { Login } from "../pages/Login";
 import { SignUp } from "../pages/SignUp";
+import { Details } from "../pages/Details";
 
 export function Routes() {
   return (
@@ -17,6 +18,9 @@ export function Routes() {
         </Route>
         <Route path="/signup">
           <SignUp />
+        </Route>
+        <Route path="/detalhes">
+          <Details />
         </Route>
       </Switch>
     </Router>
