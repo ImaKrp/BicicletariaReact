@@ -71,7 +71,7 @@ export const SignUp = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover={false}
-        style={{ fontFamily: "Poppins, sans-serif" }}
+        style={{ fontFamily: "Poppins, sans-serif", fontSize: 14 }}
       />
       <Body>
         <Arrow to="/">

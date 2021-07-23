@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Body, Content, Row, Column } from "./style";
+import { Body, Content, Row, Column, Image, ImgColumn } from "./style";
 import { Footer, Header  } from "../../components/index";
 import { useQuery } from '../../hooks/useQuery';
 import { useProducts } from "../../hooks/useProducts";
@@ -23,14 +23,14 @@ export const Details = () => {
       <Body>
         <Content>
           <Row>
+            <ImgColumn>
+            <Image src={produto.img}/>
+            </ImgColumn>
             <Column>
-            <img src={produto.img} ></img>
             </Column>
-            <Column>
-            </Column>
-          </Row>
-        </Content>
+          </Row>   
         <Footer />
+        </Content>
       </Body>
     </>
   );
