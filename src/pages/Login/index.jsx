@@ -8,28 +8,12 @@ import { Redirect } from "react-router-dom";
 export const Login = () => {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
+  const [visibility, setVisibility] = useState(true);
   const { isItLogged, CreateSession, fetchAccounts } = useSession();
 
   useEffect(() => {
     fetchAccounts();
   }, [fetchAccounts]);
-
-  const PassVisibility = (e) => {
-    e.preventDefault();
-    const password = document.querySelector(".Password");
-    const eye = document.querySelector("#eye");
-    const type =
-      password.getAttribute("type") === "password" ? "text" : "password";
-    password.setAttribute("type", type);
-    if (type === "password") {
-      eye.classList.remove("fa-eye");
-      eye.classList.add("fa-eye-slash");
-    }
-    if (type === "text") {
-      eye.classList.remove("fa-eye-slash");
-      eye.classList.add("fa-eye");
-    }
-  };
 
   const ToastErro = () =>
     toast.dark("Conta Não Encontrada", {
@@ -76,15 +60,18 @@ export const Login = () => {
             placeholder="Usuário"
           />
           <InputDiv>
-            <Input
-              className="Password"
+          <Input
               value={Password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Senha"
-              type="password"
+              type={visibility ? "password" : 'text' }
             />
-            <Eye onClick={(e) => PassVisibility(e)}>
-              <i className="far fa-eye-slash" id="eye"></i>
+            <Eye onClick={() => setVisibility(!visibility)}>
+              {visibility ? (
+                <i className="far fa-eye-slash"></i>
+              ) : (
+                <i className="far fa-eye"></i>
+              )}
             </Eye>
           </InputDiv>
           <Log type="submit">Entrar</Log>

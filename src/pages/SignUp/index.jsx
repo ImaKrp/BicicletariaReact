@@ -9,24 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 export const SignUp = () => {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
+  const [visibility, setVisibility] = useState(true);
   const { AddAccount, isItLogged } = useSession();
-
-  const PassVisibility = (e) => {
-    e.preventDefault();
-    const password = document.querySelector(".Password");
-    const eye = document.querySelector("#eye");
-    const type =
-      password.getAttribute("type") === "password" ? "text" : "password";
-    password.setAttribute("type", type);
-    if (type === "password") {
-      eye.classList.remove("fa-eye");
-      eye.classList.add("fa-eye-slash");
-    }
-    if (type === "text") {
-      eye.classList.remove("fa-eye-slash");
-      eye.classList.add("fa-eye");
-    }
-  };
 
   const ToastAdded = () =>
     toast.dark("Conta Cadastrada com Sucesso, Logue na Conta", {
@@ -52,6 +36,10 @@ export const SignUp = () => {
 
   const handleSubmit = async (e, Username, Password) => {
     e.preventDefault();
+    if (Username === "" || Password === "") {
+      ToastErro();
+      return;
+    }
     const isRegistered = await AddAccount(Username, Password);
     if (isRegistered) ToastAdded();
     if (!isRegistered) ToastErro();
@@ -87,14 +75,17 @@ export const SignUp = () => {
           />
           <InputDiv>
             <Input
-              className="Password"
               value={Password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Senha"
-              type="password"
+              type={visibility ? "password" : 'text' }
             />
-            <Eye onClick={(e) => PassVisibility(e)}>
-              <i className="far fa-eye-slash" id="eye"></i>
+            <Eye onClick={() => setVisibility(!visibility)}>
+              {visibility ? (
+                <i className="far fa-eye-slash"></i>
+              ) : (
+                <i className="far fa-eye"></i>
+              )}
             </Eye>
           </InputDiv>
           <Log type="submit">Cadastrar</Log>

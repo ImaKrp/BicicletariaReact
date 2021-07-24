@@ -97,7 +97,7 @@ export const InputDiv = styled.div`
   position: relative;
 `;
 
-export const Eye = styled.button`
+export const Eye = styled.div`
 width: 1.8rem;
 height: 1.5rem;
   display: flex;
