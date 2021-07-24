@@ -90,7 +90,7 @@ export const SignUp = () => {
           </InputDiv>
           <Log type="submit">Cadastrar</Log>
         </Form>
-        {isLogged ? <Redirect to="/login" /> : null}
+        {isLogged && <Redirect to="/login" />}
       </Body>
     </>
   );

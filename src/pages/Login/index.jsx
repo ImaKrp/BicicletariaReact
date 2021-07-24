@@ -76,7 +76,7 @@ export const Login = () => {
           </InputDiv>
           <Log type="submit">Entrar</Log>
         </Form>
-        {isLogged ? <Redirect to="/" /> : null}
+        {isLogged && <Redirect to="/" />}
       </Body>
     </>
   );

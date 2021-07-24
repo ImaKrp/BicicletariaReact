@@ -65,7 +65,7 @@ export const Products = () => {
             <hr />
           </Title>
           <Row>
-            {Produtos ? (
+            {Produtos && (
             Produtos.filter(
               ({ name }) =>
                 name.toLowerCase()?.indexOf(search.toLowerCase()) > -1
@@ -80,7 +80,7 @@ export const Products = () => {
               >
                 <button onClick={() => addProduct(produto)}>Comprar</button>
               </Card>
-            ))) : null}
+            )))}
           </Row>
           <Footer />
         </Content>
