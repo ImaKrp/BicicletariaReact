@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import { Body, Icon, Log, Form, Input, Arrow, InputDiv, Eye } from "./style";
 import { useSession } from "../../hooks/useSession";
-import "react-toastify/dist/ReactToastify.css";
-import { Redirect } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 export const SignUp = () => {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
   const [visibility, setVisibility] = useState(true);
-  const { AddAccount, isItLogged } = useSession();
+  const { AddAccount } = useSession();
 
   const ToastAdded = () =>
     toast.dark("Conta Cadastrada com Sucesso, Logue na Conta", {
@@ -45,22 +42,8 @@ export const SignUp = () => {
     if (!isRegistered) ToastErro();
   };
 
-  const isLogged = isItLogged();
-
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover={false}
-        style={{ fontFamily: "Poppins, sans-serif", fontSize: 14 }}
-      />
       <Body>
         <Arrow to="/">
           <i className="fas fa-caret-left"></i>
@@ -78,7 +61,7 @@ export const SignUp = () => {
               value={Password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Senha"
-              type={visibility ? "password" : 'text' }
+              type={visibility ? "password" : "text"}
             />
             <Eye onClick={() => setVisibility(!visibility)}>
               {visibility ? (
@@ -90,7 +73,6 @@ export const SignUp = () => {
           </InputDiv>
           <Log type="submit">Cadastrar</Log>
         </Form>
-        {isLogged && <Redirect to="/login" />}
       </Body>
     </>
   );

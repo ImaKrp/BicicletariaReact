@@ -98,8 +98,8 @@ export const InputDiv = styled.div`
 `;
 
 export const Eye = styled.div`
-width: 1.8rem;
-height: 1.5rem;
+  width: 1.8rem;
+  height: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,7 +111,7 @@ height: 1.5rem;
   cursor: pointer;
   transition: all 0.3s;
 
-  &:hover{
+  &:hover {
     filter: brightness(1.2);
   }
 `;

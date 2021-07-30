@@ -4,8 +4,8 @@ const initialState = [];
 export const productsContext = createContext(initialState);
 
 export function ProductsProvider({ children }) {
-    const [Produtos, setProdutos] = useState();
-    const [Produto, setProduto] = useState({});
+  const [Produtos, setProdutos] = useState();
+  const [Produto, setProduto] = useState({});
 
   const fetchProducts = useCallback(async () => {
     const { data } = await api.get("/products");
@@ -31,7 +31,7 @@ export function ProductsProvider({ children }) {
         getProduct,
         listProducts,
         fetchProducts,
-        fetchProduto
+        fetchProduto,
       }}
     >
       {children}

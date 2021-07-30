@@ -52,7 +52,7 @@ export const Row = styled.div`
   flex-grow: 1;
   padding: 0 15%;
 
-  @media (max-width: 1366px){
+  @media (max-width: 1366px) {
     padding: 0 5%;
   }
 `;

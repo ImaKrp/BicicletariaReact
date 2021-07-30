@@ -1,7 +1,6 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import { Card, Footer, Header, Search } from "../../components/index";
 import { useCart } from "../../hooks/useCart";
 import { useProducts } from "../../hooks/useProducts";
@@ -11,7 +10,7 @@ export const Products = () => {
   const [search, setSearch] = useState("");
   const { addItemsToCart } = useCart();
   const { fetchProducts, listProducts } = useProducts();
-  
+
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
@@ -36,18 +35,6 @@ export const Products = () => {
 
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover={false}
-        style={{ fontFamily: "Poppins, sans-serif", fontSize: 14 }}
-      />
       <Header>
         <Search>
           <Input
@@ -65,22 +52,22 @@ export const Products = () => {
             <hr />
           </Title>
           <Row>
-            {Produtos && (
-            Produtos.filter(
-              ({ name }) =>
-                name.toLowerCase()?.indexOf(search.toLowerCase()) > -1
-            ).map((produto) => (
-              <Card
-                key={produto.id}
-                id={produto.id}
-                img={produto.img}
-                name={produto.name}
-                price={produto.price}
-                quantidade={produto.quantidade}
-              >
-                <button onClick={() => addProduct(produto)}>Comprar</button>
-              </Card>
-            )))}
+            {Produtos &&
+              Produtos.filter(
+                ({ name }) =>
+                  name.toLowerCase()?.indexOf(search.toLowerCase()) > -1
+              ).map((produto) => (
+                <Card
+                  key={produto.id}
+                  id={produto.id}
+                  img={produto.img}
+                  name={produto.name}
+                  price={produto.price}
+                  quantidade={produto.quantidade}
+                >
+                  <button onClick={() => addProduct(produto)}>Comprar</button>
+                </Card>
+              ))}
           </Row>
           <Footer />
         </Content>

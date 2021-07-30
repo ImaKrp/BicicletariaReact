@@ -41,7 +41,7 @@ export function CartProvider({ children }) {
     let valor = 0;
 
     for (const obj of cartItems) {
-      valor += obj.price.replace(/[^0-9]/g, '') * obj.quantidade;
+      valor += obj.price.replace(/[^0-9]/g, "") * obj.quantidade;
     }
 
     setValue(valor);

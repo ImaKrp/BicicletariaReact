@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Body, Icon, Log, Form, Input, Arrow, InputDiv, Eye } from "./style";
 import { useSession } from "../../hooks/useSession";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import { Redirect } from "react-router-dom";
 
 export const Login = () => {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
   const [visibility, setVisibility] = useState(true);
-  const { isItLogged, CreateSession, fetchAccounts } = useSession();
-
-  useEffect(() => {
-    fetchAccounts();
-  }, [fetchAccounts]);
+  const { isItLogged, CreateSession } = useSession();
 
   const ToastErro = () =>
     toast.dark("Conta Não Encontrada", {
@@ -26,27 +21,15 @@ export const Login = () => {
       progress: undefined,
     });
 
-  const handleSubmit = async(e, Username, Password) => {
+  const handleSubmit = async (e, Username, Password) => {
     e.preventDefault();
-    if (await CreateSession(Username, Password) !== true) ToastErro()
+    if ((await CreateSession(Username, Password)) !== true) ToastErro();
   };
 
   const isLogged = isItLogged();
 
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover={false}
-        style={{ fontFamily: "Poppins, sans-serif", fontSize: 14 }}
-      />
       <Body>
         <Arrow to="/">
           <i className="fas fa-caret-left"></i>
@@ -60,11 +43,11 @@ export const Login = () => {
             placeholder="Usuário"
           />
           <InputDiv>
-          <Input
+            <Input
               value={Password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Senha"
-              type={visibility ? "password" : 'text' }
+              type={visibility ? "password" : "text"}
             />
             <Eye onClick={() => setVisibility(!visibility)}>
               {visibility ? (

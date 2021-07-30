@@ -1,4 +1,4 @@
-import { useState, useCallback, createContext } from "react";
+import { useState, useEffect, useCallback, createContext } from "react";
 import { api } from "../../api/api";
 const initialState = [];
 export const sessionContext = createContext(initialState);
@@ -11,9 +11,13 @@ export function SessionProvider({ children }) {
 
   const fetchAccounts = useCallback(async () => {
     const { data } = await api.get("/accounts");
-    await setAccounts(data);
+    setAccounts(data);
     setGenId(Accounts.length + 1);
   }, [Accounts.length]);
+
+  useEffect(() => {
+    fetchAccounts();
+  }, [fetchAccounts]);
 
   function onGoingSession() {
     return session;
@@ -34,7 +38,6 @@ export function SessionProvider({ children }) {
 
   async function CreateSession(Name, Pass) {
     await fetchAccounts();
-
     for (const account of Accounts) {
       if (Name === account.name && Pass === account.pass) {
         setSession(account);
@@ -46,8 +49,6 @@ export function SessionProvider({ children }) {
   }
 
   async function AddAccount(Name, Pass) {
-    await fetchAccounts();
-
     let erro = 0;
 
     for (const account of Accounts) {
@@ -61,8 +62,10 @@ export function SessionProvider({ children }) {
       name: `${Name}`,
       pass: `${Pass}`,
     });
+
+    setSession({ Name, Pass });
     LogIn();
-    LogOut();
+
     return true;
   }
 
