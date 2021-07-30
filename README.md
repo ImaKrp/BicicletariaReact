@@ -23,6 +23,12 @@ First part is finally done  ~I mean, need some fixes, but... whatever
 
 ## Requirements
 
+Json Server
+
+ ```sh
+npm install -g json-server
+```
+
 Yarn to install all dependencies
 
  ```sh
