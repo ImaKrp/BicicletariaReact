@@ -23,7 +23,7 @@ import { Drawer } from "../index";
 import { useCart } from "../../hooks/useCart";
 import { useSession } from "../../hooks/useSession";
 
-const Header = (props, { ref }) => {
+const Header = (props) => {
   const { isItLogged, LogOut } = useSession();
   const { showAllItems } = useCart();
   const isLogged = isItLogged();
@@ -40,7 +40,6 @@ const Header = (props, { ref }) => {
           <i className="fas fa-times"></i>
         </CloseBtn>
       </Drawer>
-      {CartItems.length > 0 ? true : false}
       <Wrapper>
         <PurpleNav>
           <SmallLink href="https://www.facebook.com">

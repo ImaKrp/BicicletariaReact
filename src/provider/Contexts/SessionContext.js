@@ -36,10 +36,10 @@ export function SessionProvider({ children }) {
     setSession([]);
   }
 
-  async function CreateSession(Name, Pass) {
+  async function CreateSession(Email, Pass) {
     await fetchAccounts();
     for (const account of Accounts) {
-      if (Name === account.name && Pass === account.pass) {
+      if (Email === account.email && Pass === account.pass) {
         setSession(account);
         console.log(isLogged);
         LogIn();
@@ -48,22 +48,23 @@ export function SessionProvider({ children }) {
     }
   }
 
-  async function AddAccount(Name, Pass) {
+  async function AddAccount(Email, Pass, Name) {
     let erro = 0;
 
     for (const account of Accounts) {
-      if (Name === account.name) erro++;
-      if (Name == null || Pass == null || Name === "" || Pass === "") erro++;
+      if (Email === account.email) erro++;
     }
 
     if (erro > 0) return false;
+
     await api.post("/accounts", {
       id: genId,
-      name: `${Name}`,
+      email: `${Email}`,
       pass: `${Pass}`,
+      name: `${Name}`,
     });
 
-    setSession({ Name, Pass });
+    setSession({ genId, Email, Pass });
     LogIn();
 
     return true;

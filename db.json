@@ -2,13 +2,9 @@
   "accounts": [
     {
       "id": 1,
-      "name": "imakrp@gmail.com",
-      "pass": "Teste"
-    },
-    {
-      "id": 7,
-      "name": "LEOZINHO BALA TENSA",
-      "pass": "LEOZINHO BALA TENSA"
+      "email": "imakrp@gmail.com",
+      "pass": "Teste",
+      "name": "Júlio"
     }
   ],
   "products": [

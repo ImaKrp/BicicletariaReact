@@ -4,13 +4,14 @@ import { useSession } from "../../hooks/useSession";
 import { toast } from "react-toastify";
 
 export const SignUp = () => {
-  const [Username, setUsername] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Name, setName] = useState("");
   const [Password, setPassword] = useState("");
   const [visibility, setVisibility] = useState(true);
   const { AddAccount } = useSession();
 
   const ToastAdded = () =>
-    toast.dark("Conta Cadastrada com Sucesso, Logue na Conta", {
+    toast.dark("Obrigado por se Cadastrar", {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,
@@ -31,13 +32,20 @@ export const SignUp = () => {
       progress: undefined,
     });
 
-  const handleSubmit = async (e, Username, Password) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (Username === "" || Password === "") {
+    if (
+      Email == null ||
+      Email === "" ||
+      Password == null ||
+      Password === "" ||
+      Name === "" ||
+      Name === null
+    ) {
       ToastErro();
       return;
     }
-    const isRegistered = await AddAccount(Username, Password);
+    const isRegistered = await AddAccount(Email, Password, Name);
     if (isRegistered) ToastAdded();
     if (!isRegistered) ToastErro();
   };
@@ -49,12 +57,18 @@ export const SignUp = () => {
           <i className="fas fa-caret-left"></i>
         </Arrow>
         <Icon src="/logo512.png" />
-        <Form onSubmit={(e) => handleSubmit(e, Username, Password)}>
+        <Form onSubmit={(e) => handleSubmit(e)}>
           <Input
             type="text"
-            value={Username}
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Usuário"
+            value={Email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="E-mail"
+          />
+          <Input
+            type="text"
+            value={Name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Nome"
           />
           <InputDiv>
             <Input

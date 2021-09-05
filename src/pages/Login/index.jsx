@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { Body, Icon, Log, Form, Input, Arrow, InputDiv, Eye } from "./style";
 import { useSession } from "../../hooks/useSession";
 import { toast } from "react-toastify";
-import { Redirect } from "react-router-dom";
 
 export const Login = () => {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
   const [visibility, setVisibility] = useState(true);
-  const { isItLogged, CreateSession } = useSession();
+  const { CreateSession } = useSession();
 
   const ToastErro = () =>
     toast.dark("Conta Não Encontrada", {
@@ -25,8 +24,6 @@ export const Login = () => {
     e.preventDefault();
     if ((await CreateSession(Username, Password)) !== true) ToastErro();
   };
-
-  const isLogged = isItLogged();
 
   return (
     <>
@@ -59,7 +56,6 @@ export const Login = () => {
           </InputDiv>
           <Log type="submit">Entrar</Log>
         </Form>
-        {isLogged && <Redirect to="/" />}
       </Body>
     </>
   );
