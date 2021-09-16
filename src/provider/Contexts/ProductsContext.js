@@ -14,7 +14,7 @@ export function ProductsProvider({ children }) {
 
   const fetchProduto = useCallback(async (id) => {
     const { data } = await api.get(`/products/${id}`);
-    await setProduto(data);
+    setProduto(data);
   }, []);
 
   function listProducts() {
