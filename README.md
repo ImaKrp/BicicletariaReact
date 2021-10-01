@@ -55,13 +55,6 @@ You may want backend routes, you can see them all importing the Insomnia.json
 
 You can modify the db.json ("src/db.json")
 
-## Author
-
-👤 **Júlio Carvalho Gonçalves**
-
-* Twitter: [@whatakrp](https://twitter.com/whatakrp)
-* Github: [@ImaKrp](https://github.com/ImaKrp)
-
 ## Support Me on GitHub
 
 Give a ⭐️ if this project helped you somehow!
